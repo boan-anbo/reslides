@@ -1,0 +1,43 @@
+/**
+ * CodeBlockWrapper component styles
+ */
+
+.slidev-code-wrapper {
+  position: relative;
+}
+
+.slidev-code-block-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--slidev-code-background, rgba(0, 0, 0, 0.05));
+  border-bottom: 1px solid var(--slidev-code-border, rgba(0, 0, 0, 0.1));
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.slidev-code-copy {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slidev-code-line-numbers .shiki code {
+  counter-reset: line var(--start, 1);
+}
+
+.slidev-code-line-numbers .shiki code .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 2em;
+  margin-right: 1em;
+  text-align: right;
+  color: var(--slidev-code-line-number-color, rgba(115, 138, 148, 0.4));
+}

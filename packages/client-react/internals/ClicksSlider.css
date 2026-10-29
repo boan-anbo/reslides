@@ -1,0 +1,21 @@
+/**
+ * ClicksSlider styles
+ * Port of Vue client internals/ClicksSlider.vue styles
+ */
+
+.clicks-slider-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+.clicks-slider-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 100%;
+  width: var(--thumb-width, 0.5rem);
+}
+
+.clicks-slider-range::-moz-range-thumb {
+  height: 100%;
+  width: var(--thumb-width, 0.5rem);
+}

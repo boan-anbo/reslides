@@ -1,0 +1,19 @@
+{
+  "name": "slidev-theme-exhibit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The dhguide.org exhibit style for our React Slidev (slides-core fork): white page, ink, one red, Newsreader/DM Sans, bordered exhibit frames.",
+  "author": "Bo An",
+  "type": "module",
+  "keywords": ["slidev-theme", "slidev"],
+  "engines": { "slidev": ">=52.1.0" },
+  "slidev": {
+    "colorSchema": "light",
+    "defaults": {
+      "canvasWidth": 1920,
+      "aspectRatio": "16/9",
+      "transition": "none",
+      "fonts": { "provider": "none", "sans": "DM Sans", "serif": "Newsreader", "mono": "JetBrains Mono" }
+    }
+  }
+}

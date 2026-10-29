@@ -1,0 +1,39 @@
+/**
+ * FormSlider styles
+ * Port of Vue client internals/FormSlider.vue styles
+ */
+
+.slider {
+  appearance: none;
+  height: 22px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border: 1px solid var(--slidev-border-color, #e5e7eb);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background: rgba(128, 128, 128, 0.05);
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 5px;
+  height: 22px;
+  background: var(--slidev-theme-primary);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider::-moz-range-thumb {
+  width: 5px;
+  height: 22px;
+  background: var(--slidev-theme-primary);
+  cursor: pointer;
+  z-index: 10;
+}

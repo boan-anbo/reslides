@@ -1,0 +1,8 @@
+/**
+ * NoteDisplay styles
+ * Port of Vue client internals/NoteDisplay.vue styles
+ */
+
+.slidev-note :first-child {
+  margin-top: 0;
+}

@@ -1,0 +1,19 @@
+/**
+ * Goto styles
+ * Port of Vue client internals/Goto.vue styles
+ */
+
+.autocomplete-list {
+  background: var(--slidev-slidev-bg, #fff);
+  margin-top: 0.25rem;
+  overflow: auto;
+  max-height: calc(100vh - 100px);
+}
+
+.dark .autocomplete-list {
+  background: var(--slidev-slidev-bg, #121212);
+}
+
+.autocomplete {
+  cursor: pointer;
+}

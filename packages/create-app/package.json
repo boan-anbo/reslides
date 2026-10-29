@@ -1,0 +1,31 @@
+{
+  "name": "@daihum/create-reslides",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Scaffold a new DAIHUM Reslides presentation project (React + Markdown)",
+  "author": "Bo An / DAIHUM (forked from Slidev by Anthony Fu)",
+  "license": "MIT",
+  "homepage": "https://github.com/boan-anbo/reslides",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boan-anbo/reslides"
+  },
+  "bugs": "https://github.com/boan-anbo/reslides/issues",
+  "main": "index.mjs",
+  "bin": {
+    "create-reslides": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "template"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "ansis": "catalog:prod",
+    "minimist": "catalog:prod",
+    "prompts": "catalog:prod",
+    "tinyexec": "catalog:prod"
+  }
+}

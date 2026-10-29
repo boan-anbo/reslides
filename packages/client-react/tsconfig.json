@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ESNext"],
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@slidev/client-react": ["./index.ts"],
+      "@slidev/client-react/*": ["./*"],
+      "@slidev/types": ["../types/src/index.ts"],
+      "@slidev/parser": ["../parser/src/index.ts"],
+      "@slidev/parser/utils": ["../parser/src/utils.ts"]
+    },
+    "resolveJsonModule": true,
+    "types": [
+      "vite",
+      "vite/client",
+      "node"
+    ],
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx"
+  ],
+  "exclude": ["**/dist/**", "**/node_modules/**"]
+}

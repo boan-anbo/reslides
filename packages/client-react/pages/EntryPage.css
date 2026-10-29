@@ -1,0 +1,29 @@
+/**
+ * Entry Page styles
+ */
+
+.entry-page-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+  min-width: 10rem;
+  border-radius: 0.25rem;
+  background: rgba(128, 128, 128, 0.1);
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s;
+}
+
+.entry-page-link:hover {
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.entry-page-link > svg,
+.entry-page-link > div[class^="i-"] {
+  font-size: 3em;
+  opacity: 0.5;
+}

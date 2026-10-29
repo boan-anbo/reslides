@@ -1,0 +1,15 @@
+{
+  "name": "@daihum/reslides-example-starter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "reslides slides.md --open",
+    "build": "reslides build slides.md",
+    "export": "reslides export slides.md"
+  },
+  "dependencies": {
+    "@slidev/cli": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
+}

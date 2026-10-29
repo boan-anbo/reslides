@@ -1,0 +1,9 @@
+/**
+ * InfoDialog styles
+ * Port of Vue client internals/InfoDialog.vue styles
+ */
+
+.slidev-info-dialog {
+  padding: 1rem !important;
+  max-width: 37.5rem;
+}

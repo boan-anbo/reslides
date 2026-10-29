@@ -1,0 +1,15 @@
+{
+  "name": "my-reslides-deck",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "reslides --open",
+    "build": "reslides build",
+    "export": "reslides export"
+  },
+  "dependencies": {
+    "@daihum/reslides": "^0.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

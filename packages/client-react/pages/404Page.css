@@ -1,0 +1,16 @@
+/**
+ * 404 Page styles
+ */
+
+.page-link {
+  padding: 0.5rem 1rem;
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 0.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s;
+}
+
+.page-link:hover {
+  background: rgba(128, 128, 128, 0.2);
+}

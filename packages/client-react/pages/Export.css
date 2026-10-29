@@ -1,0 +1,47 @@
+/* Export page styles */
+/* Ported from packages/client/pages/export.vue */
+
+.export-page {
+  background: var(--slidev-controls-background);
+}
+
+@media not print {
+  #export-container {
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+  }
+
+  #export-content {
+    pointer-events: none;
+  }
+}
+
+@media print {
+  .export-page {
+    position: unset !important;
+    inset: unset !important;
+    display: block !important;
+    min-height: max-content !important;
+  }
+
+  html,
+  body,
+  #app {
+    overflow: unset !important;
+  }
+
+  #export-content {
+    transform: scale(1) !important;
+    display: block !important;
+  }
+
+  .print-slide-container {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .print-slide-container:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+}

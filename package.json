@@ -1,0 +1,52 @@
+{
+  "name": "daihum-reslides-monorepo",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DAIHUM Reslides — React & Markdown presentation slides for Digital Humanities and developers (forked from Slidev)",
+  "author": "Bo An / DAIHUM (forked from Slidev by Anthony Fu)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boan-anbo/reslides"
+  },
+  "packageManager": "pnpm@10.27.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "setup": "npx --yes pnpm@10.27.0 install && npx --yes pnpm@10.27.0 run build",
+    "build": "pnpm --filter @slidev/types build && pnpm --filter @slidev/parser build && pnpm --filter @slidev/cli build",
+    "dev": "node packages/slidev/bin/reslides.mjs examples/starter/slides.md --open",
+    "dev:exhibit": "node packages/slidev/bin/reslides.mjs examples/exhibit/slides.md --open",
+    "build:starter": "node packages/slidev/bin/reslides.mjs build examples/starter/slides.md",
+    "build:exhibit": "node packages/slidev/bin/reslides.mjs build examples/exhibit/slides.md"
+  },
+  "devDependencies": {
+    "@antfu/ni": "catalog:prod",
+    "@antfu/utils": "catalog:frontend",
+    "@shikijs/markdown-it": "catalog:frontend",
+    "@types/connect": "catalog:types",
+    "@types/file-saver": "catalog:types",
+    "@types/js-yaml": "catalog:types",
+    "@types/katex": "catalog:types",
+    "@types/markdown-it": "catalog:types",
+    "@types/node": "catalog:types",
+    "@types/prompts": "catalog:types",
+    "@types/recordrtc": "catalog:types",
+    "@types/resolve": "catalog:types",
+    "@types/semver": "catalog:types",
+    "@types/yargs": "catalog:types",
+    "katex": "catalog:frontend",
+    "mermaid": "catalog:frontend",
+    "playwright-chromium": "catalog:dev",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "shiki": "catalog:frontend",
+    "tsdown": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vite": "catalog:prod",
+    "vitest": "catalog:dev"
+  }
+}

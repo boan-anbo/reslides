@@ -1,0 +1,23 @@
+/**
+ * DrawingControls styles
+ * Port of Vue client internals/DrawingControls.vue styles
+ */
+
+.slidev-drawing-controls {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  transition: opacity 0.2s;
+}
+
+.slidev-drawing-controls:not(.pinned):not(:hover) {
+  opacity: 0.5;
+}
+
+.slidev-drawing-controls .slidev-icon-btn.active {
+  color: var(--slidev-theme-primary);
+  background: var(--slidev-theme-primary);
+  background-opacity: 0.1;
+}

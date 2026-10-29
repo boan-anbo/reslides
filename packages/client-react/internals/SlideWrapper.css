@@ -1,0 +1,22 @@
+/**
+ * SlideWrapper CSS for React
+ * Port of packages/client/internals/SlideWrapper.vue scoped styles
+ */
+
+.disable-view-transition * {
+  view-transition-name: none !important;
+}
+
+.slidev-page {
+  position: absolute;
+  inset: 0;
+
+  /* Zoom handling */
+  --slidev-slide-zoom-scale: 1;
+  width: calc(100% / var(--slidev-slide-zoom-scale));
+  height: calc(100% / var(--slidev-slide-zoom-scale));
+  transform-origin: top left;
+  scale: var(--slidev-slide-zoom-scale);
+  /* slide scale = container scale * zoom scale */
+  --slidev-slide-scale: calc(var(--slidev-slide-container-scale) * var(--slidev-slide-zoom-scale));
+}

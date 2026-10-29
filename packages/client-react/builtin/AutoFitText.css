@@ -1,0 +1,11 @@
+/**
+ * AutoFitText component styles
+ */
+
+.slidev-auto-fit-text {
+  overflow: auto;
+}
+
+.slidev-auto-fit-text-inner {
+  display: inline-block;
+}

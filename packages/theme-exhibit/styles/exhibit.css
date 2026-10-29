@@ -1,0 +1,245 @@
+/* slidev-theme-exhibit: the dhguide.org exhibit style (@daihum/exhibit) for our React Slidev.
+   Canvas 1920 × 1080 (theme default). Layouts and component markup: ../README.md. */
+
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 200 800; font-display: block; src: url("../fonts/Newsreader-normal-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 200 800; font-display: block; src: url("../fonts/Newsreader-normal-latin-ext.woff2") format("woff2"); unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 200 800; font-display: block; src: url("../fonts/Newsreader-italic-latin.woff2") format("woff2"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 100 1000; font-display: block; src: url("../fonts/DMSans-normal-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 100 1000; font-display: block; src: url("../fonts/DMSans-normal-latin-ext.woff2") format("woff2"); unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+:root {
+  /* tokens measured from dhguide.org */
+  --dh-paper: #ffffff;
+  --dh-ink: #111111;
+  --dh-body: #222222;
+  --dh-subtle: #6b7280;
+  --dh-faint: rgba(17, 17, 17, .14);
+  --dh-frame: rgba(17, 17, 17, .8);
+  --dh-accent: #e31f27;
+  --dh-serif: "Newsreader", "Crimson Pro", "EB Garamond", Georgia, "Songti SC", "Noto Serif CJK SC", serif;
+  --dh-sans: "DM Sans", system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  --dh-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ================= page ================= */
+.dh { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 60px 120px 50px; background: var(--dh-paper); color: var(--dh-body); font-family: var(--dh-sans); overflow: hidden; }
+.dh * { box-sizing: border-box; }
+.dh p { margin: 0; }
+
+/* top line: section kicker left, page count right */
+.dh .rail { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; font: 400 19px/1 var(--dh-sans); letter-spacing: .2em; text-transform: uppercase; color: var(--dh-subtle); }
+.dh .rail .meta { letter-spacing: .14em; }
+
+/* slide content between the top line and the foot */
+.dh .main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+
+/* claim title: grey slide number (set by the layout), then the sentence */
+.dh h1 { font: 400 56px/1.18 var(--dh-serif); color: var(--dh-ink); margin: 34px 0 0; max-width: 1640px; letter-spacing: 0; }
+.dh[data-numbered] h1::before { content: var(--dh-no); color: var(--dh-subtle); margin-right: .38em; font-variant-numeric: tabular-nums; }
+.dh h1 em { font-style: normal; color: var(--dh-accent); }
+
+/* body sits under the title at a fixed distance; it fills the rest */
+.dh .body { flex: 1; min-height: 0; display: flex; gap: 56px; margin-top: 52px; }
+.dh .body.col { flex-direction: column; gap: 44px; }
+.dh .stack { display: flex; flex-direction: column; gap: 34px; min-width: 0; }
+.dh .center { justify-content: center; }
+
+/* bottom line: two slots, foot (left) and right (default: the page stepper); no rule */
+.dh .bottom { display: flex; align-items: center; justify-content: space-between; gap: 48px; min-height: 52px; margin-top: 24px; }
+.dh .foot { flex: 1; min-width: 0; font: 400 18px/1.45 var(--dh-sans); color: var(--dh-subtle); }
+.dh .foot p { margin: 0; }
+.dh .right { flex: none; display: flex; align-items: center; margin-right: -14px; font: 400 18px/1.45 var(--dh-sans); color: var(--dh-subtle); }
+.dh .right p { margin: 0; }
+
+/* page stepper, as dhguide.org's step control: restart · ‹ · 2/15 · › */
+.dh .stepper { display: flex; align-items: center; }
+.dh .stepper button { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; cursor: pointer; color: var(--dh-ink); }
+.dh .stepper button svg { width: 15px; height: 22px; }
+.dh .stepper button.restart { color: rgba(17, 17, 17, .55); }
+.dh .stepper button.restart svg { width: 22px; height: 22px; }
+.dh .stepper button.next { color: var(--dh-accent); }
+.dh .stepper button:hover { color: var(--dh-accent); }
+.dh .stepper button.next:hover { color: var(--dh-ink); }
+.dh .stepper button:disabled { color: rgba(17, 17, 17, .25); cursor: default; }
+.dh .stepper .count { min-width: 92px; text-align: center; font: 400 19px/1 var(--dh-mono); letter-spacing: .18em; font-variant-numeric: tabular-nums; color: var(--dh-ink); }
+
+/* apparatus label: mono, uppercase, tracked */
+.dh .label { display: block; font: 400 17px/1.4 var(--dh-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dh-subtle); }
+.dh .label.red { color: var(--dh-accent); }
+.dh .say { font: 400 36px/1.36 var(--dh-serif); color: var(--dh-ink); margin-top: 10px; }
+
+/* no orphaned last words */
+.dh h1, .dh .tl .ev p { text-wrap: balance; }
+.dh .say, .dh .q, .dh .plain, .dh .frame .text, .dh .thesis p, .dh .chron .t, .dh .route .what, .dh .route .how, .dh .main > p, .dh .main li { text-wrap: pretty; }
+
+/* emphasis inside evidence: red words, nothing else */
+.dh mark { background: none; color: var(--dh-accent); padding: 0; }
+
+/* ================= exhibit frame (EmbeddedDocFrame) ================= */
+.dh .frame { position: relative; border: 1.5px solid var(--dh-frame); background: var(--dh-paper); display: flex; flex-direction: column; min-height: 0; min-width: 0; padding: 38px 32px 28px; }
+.dh .frame > .label { position: absolute; top: 0; left: 20px; transform: translateY(-50%); padding: 0 12px; background: var(--dh-paper); line-height: 1; white-space: nowrap; }
+.dh .frame.hot > .label { color: var(--dh-accent); }
+.dh .frame .pic { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+.dh .frame .pic img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; display: block; min-width: 0; min-height: 0; }
+.dh .frame.fit { align-self: flex-start; }
+.dh .frame.fit .pic { flex: none; }
+.dh .frame .text { font: 400 40px/1.4 var(--dh-serif); color: var(--dh-ink); }
+.dh .frame .cap { font: 400 20px/1.4 var(--dh-sans); color: var(--dh-subtle); margin-top: 18px; text-align: center; }
+
+/* ================= quotations ================= */
+.dh .q { font: 400 40px/1.32 var(--dh-serif); color: var(--dh-ink); }
+.dh .q::before { content: "\201C"; }
+.dh .q::after { content: "\201D"; }
+.dh .plain { font: 400 40px/1.32 var(--dh-serif); color: var(--dh-ink); }
+
+/* rows: label | quotation, ruled */
+.dh .rows { display: flex; flex-direction: column; }
+.dh .row { display: grid; grid-template-columns: 320px 1fr; gap: 48px; padding: 30px 0; align-items: baseline; }
+.dh .row.hot > .label { color: var(--dh-accent); }
+.dh .rows.small .q, .dh .rows.small .plain { font-size: 35px; }
+.dh .rows.small .row { padding: 20px 0; }
+
+/* ================= cover ================= */
+.dh.cover .main { justify-content: center; }
+.dh.cover h1 { font: 400 168px/1 var(--dh-serif); color: var(--dh-ink); margin: 0; max-width: none; }
+.dh.cover .main > h1 + * { margin-top: 34px; }
+.dh.cover .main > p { font: 400 48px/1.25 var(--dh-serif); color: var(--dh-subtle); max-width: 1700px; }
+.dh.cover .by { align-items: flex-end; font: 400 32px/1.4 var(--dh-sans); color: var(--dh-ink); }
+.dh.cover .by .foot { font: inherit; color: inherit; }
+.dh.cover .by p { margin: 0; }
+.dh.cover .by .label { margin-top: 12px; }
+
+/* ================= route: boxes joined by arrows (the guide's route figure) ================= */
+.dh .route { display: flex; align-items: stretch; }
+.dh .route .step { flex: 1; border: 1.5px solid var(--dh-frame); padding: 30px 32px; display: flex; flex-direction: column; gap: 10px; }
+.dh .route .step.red { border-color: var(--dh-accent); }
+.dh .route .arrow { flex: 0 0 64px; display: flex; align-items: center; justify-content: center; font: 400 34px/1 var(--dh-sans); color: var(--dh-ink); }
+.dh .route .yr { font: 400 22px/1 var(--dh-mono); letter-spacing: .06em; color: var(--dh-subtle); }
+.dh .route .step.red .yr { color: var(--dh-accent); }
+.dh .route .what { font: 400 38px/1.25 var(--dh-serif); color: var(--dh-ink); }
+.dh .route .how { font: 400 28px/1.38 var(--dh-serif); color: var(--dh-subtle); }
+
+/* ================= horizontal timeline ================= */
+.dh .tl { position: relative; display: grid; grid-template-columns: repeat(var(--n, 6), 1fr); padding-top: 46px; }
+.dh .tl::before { content: ""; position: absolute; left: 0; right: 0; top: 72px; border-top: 1.5px solid var(--dh-frame); }
+.dh .tl .ev { position: relative; padding: 50px 28px 0 0; }
+.dh .tl .ev::before { content: ""; position: absolute; top: 18px; left: 0; width: 16px; height: 16px; background: var(--dh-paper); border: 1.5px solid var(--dh-ink); }
+.dh .tl .ev.red::before { background: var(--dh-accent); border-color: var(--dh-accent); }
+.dh .tl .yr { position: absolute; top: -18px; left: 0; font: 400 22px/1 var(--dh-mono); letter-spacing: .06em; color: var(--dh-subtle); }
+.dh .tl .ev.red .yr, .dh .tl .ev.red p { color: var(--dh-accent); }
+.dh .tl .ev p { font: 400 29px/1.2 var(--dh-serif); color: var(--dh-ink); }
+.dh .tl .ev .note { display: block; margin-top: 12px; font: 400 22px/1.35 var(--dh-sans); color: var(--dh-subtle); }
+
+/* ================= chronicle: year | event, with an optional red divider ================= */
+.dh .chron { display: grid; grid-template-columns: 170px 1fr; column-gap: 36px; align-content: start; }
+.dh .chron .y { font: 400 25px/1.6 var(--dh-mono); color: var(--dh-subtle); padding: 19px 0; }
+.dh .chron .t { font: 400 37px/1.35 var(--dh-serif); color: var(--dh-ink); padding: 15px 0; }
+.dh .chron .divider { grid-column: 1 / -1; display: flex; align-items: center; gap: 22px; padding: 16px 0; font: 400 20px/1 var(--dh-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dh-accent); }
+.dh .chron .divider::before { content: ""; width: 150px; border-top: 2.5px solid var(--dh-accent); }
+.dh .chron .divider::after { content: ""; flex: 1; border-top: 2.5px solid var(--dh-accent); }
+
+/* ================= bars ================= */
+.dh .bars { display: grid; grid-template-columns: auto 1fr 76px; row-gap: 30px; column-gap: 28px; align-items: center; align-content: start; }
+.dh .bars .n { font: 400 34px/1.2 var(--dh-serif); color: var(--dh-ink); }
+.dh .bars .n.red { color: var(--dh-accent); }
+.dh .bars .b { height: 24px; background: var(--dh-ink); }
+.dh .bars .b.red { background: var(--dh-accent); }
+.dh .bars .v { font: 400 20px/1 var(--dh-mono); color: var(--dh-subtle); }
+
+/* ================= pairs table: two columns of short items ================= */
+.dh .pairs { display: grid; grid-template-columns: auto 1fr; column-gap: 32px; }
+.dh .pairs > * { padding: 20px 0; }
+.dh .pairs .k { font: 400 35px/1.3 var(--dh-serif); color: var(--dh-ink); }
+.dh .pairs .v { font: 400 35px/1.3 var(--dh-serif); color: var(--dh-subtle); }
+
+/* ================= two columns with ruled heads ================= */
+.dh .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-content: start; }
+.dh .cols > div > .head { font: 400 18px/1 var(--dh-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dh-subtle); padding-bottom: 16px; margin-bottom: 26px; }
+.dh .cols > div.red > .head { color: var(--dh-accent); }
+.dh .cols p { font: 400 44px/1.25 var(--dh-serif); color: var(--dh-ink); margin: 0 0 26px; }
+.dh .cols > div.muted p { color: var(--dh-subtle); }
+
+/* ================= grid of equal frames ================= */
+.dh .grid { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); gap: 34px; align-items: stretch; align-content: start; }
+
+/* ================= closing statements ================= */
+.dh .thesis { display: flex; flex-direction: column; }
+.dh .thesis p { font: 400 44px/1.36 var(--dh-serif); color: var(--dh-ink); padding: 34px 0; max-width: 1620px; }
+.dh .thesis p.last { font-size: 60px; line-height: 1.24; padding-top: 40px; }
+.dh .thesis em { font-style: normal; color: var(--dh-accent); }
+
+/* ================= plain markdown (teaching slides) ================= */
+.dh.dh .main > h1 + * { margin-top: 52px; }
+.dh .main > h2 { font: 400 19px/1.3 var(--dh-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dh-accent); margin: 40px 0 18px; }
+.dh .main > h3 { font: 400 40px/1.25 var(--dh-serif); color: var(--dh-ink); margin: 32px 0 14px; }
+.dh .main > p { font: 400 36px/1.5 var(--dh-sans); color: var(--dh-body); margin: 0 0 22px; max-width: 1560px; }
+.dh .main > ul, .dh .main > ol { margin: 0 0 22px; padding-left: 1.3em; font: 400 36px/1.5 var(--dh-sans); color: var(--dh-body); max-width: 1560px; }
+.dh .main > ul { list-style: none; padding-left: 0; }
+.dh .main > ul > li { position: relative; padding-left: 1.1em; margin: 0 0 12px; }
+.dh .main > ul > li::before { content: ""; position: absolute; left: 0; top: .62em; width: 12px; height: 12px; background: var(--dh-accent); }
+.dh .main > ol > li { margin: 0 0 12px; padding-left: .3em; }
+.dh .main > ol > li::marker { font-family: var(--dh-mono); font-size: .7em; color: var(--dh-subtle); }
+.dh .main li ul, .dh .main li ol { font-size: .85em; margin-top: 8px; }
+.dh .main strong { font-weight: 600; color: var(--dh-ink); }
+.dh .main > p em, .dh .main li em { font-style: normal; color: var(--dh-accent); }
+.dh .main a { color: var(--dh-ink); text-decoration: underline; text-decoration-color: var(--dh-accent); text-underline-offset: .18em; }
+.dh .main > blockquote { margin: 8px 0 26px; padding: 6px 0 6px 34px; border-left: 3px solid var(--dh-accent); font: 400 40px/1.38 var(--dh-serif); color: var(--dh-ink); }
+.dh .main > blockquote p { margin: 0; }
+.dh .main > table { margin: 0 0 34px; border-collapse: collapse; font: 400 30px/1.35 var(--dh-sans); color: var(--dh-body); }
+.dh .main > table th { font: 400 18px/1.3 var(--dh-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dh-subtle); text-align: left; padding: 0 40px 14px 0; }
+.dh .main > table td { padding: 16px 40px 16px 0; vertical-align: top; }
+.dh .main > p > img, .dh .main > img { max-width: 100%; max-height: 640px; display: block; }
+.dh .main code { font-family: var(--dh-mono); font-size: .82em; background: rgba(17, 17, 17, .05); padding: .05em .3em; }
+.dh .main pre { font: 400 24px/1.5 var(--dh-mono); border: 1.5px solid var(--dh-frame); padding: 26px 30px; margin: 0 0 24px; overflow: hidden; }
+.dh .main pre code { background: none; padding: 0; font-size: inherit; }
+
+/* ================= section and statement layouts ================= */
+.dh.section .main { justify-content: center; }
+.dh.section h1 { font-size: 104px; line-height: 1.06; max-width: 1600px; margin-top: 0; }
+.dh.section .main > p { color: var(--dh-subtle); font: 400 40px/1.35 var(--dh-serif); margin-top: 30px; }
+
+/* ================= step-through (data-s="n"; phases set by the layout) =================
+   As the guide's stepped figures: later steps faint, the current step marked in red,
+   earlier steps in ink. 0.5 s fades; none under reduced motion. */
+.dh [data-phase] { transition: opacity .5s ease, color .5s ease, border-color .5s ease, background-color .5s ease; }
+.dh [data-phase="future"] { opacity: .13; }
+.dh .row[data-phase="current"] > .label,
+.dh .stack > [data-phase="current"] > .label,
+.dh .frame[data-phase="current"] > .label,
+.dh .cols > [data-phase="current"] > .head,
+.dh .route .step[data-phase="current"] .yr,
+.dh .tl .ev[data-phase="current"] .yr,
+.dh .chron .y[data-phase="current"],
+.dh .bars .n[data-phase="current"],
+.dh .pairs .k[data-phase="current"] { color: var(--dh-accent); }
+.dh .frame[data-phase="current"], .dh .route .step[data-phase="current"] { border-color: var(--dh-accent); }
+.dh .tl .ev[data-phase="current"]::before { background: var(--dh-accent); border-color: var(--dh-accent); }
+.dh .bars .b[data-phase="current"] { background: var(--dh-accent); }
+.dh .stepper .track { display: flex; align-items: center; gap: 3px; width: 240px; height: 8px; margin: 0 10px 0 6px; }
+.dh .stepper .track i { flex: 1; height: 100%; background: rgba(17, 17, 17, .14); transition: background-color .3s ease; }
+.dh .stepper .track i.done { background: var(--dh-accent); }
+.dh .stepper .track i.on { background: var(--dh-accent); }
+@media (prefers-reduced-motion: reduce) { .dh [data-phase] { transition: none; } }
+
+/* A large year beside a slide's evidence; and a smaller variant of rows. */
+.dh .big-year { font: 400 168px/1 var(--dh-serif); color: var(--dh-ink); margin: 0 0 18px; letter-spacing: -.01em; }
+.dh .rows.xsmall .q, .dh .rows.xsmall .plain { font-size: 30px; }
+.dh .rows.xsmall .row { grid-template-columns: 260px 1fr; gap: 36px; padding: 18px 0; }
+
+/* Figures of people (svg.people): head-and-shoulder shapes that step with their rows; the current one is red. */
+.dh svg.people { width: 100%; max-height: 380px; display: block; }
+.dh svg.people .p { fill: var(--dh-ink); stroke: var(--dh-paper); stroke-width: 8; paint-order: stroke; transition: fill .5s ease; }
+.dh svg.people [data-phase] { opacity: 1; }
+.dh svg.people [data-phase="future"] .p { fill: #d4d6da; }
+.dh svg.people [data-phase="current"] .p { fill: var(--dh-accent); }
+
+/* Marks drawn over an image (svg.annot): outlines and a band that step in; one note in red. */
+.dh svg.annot { width: 100%; height: 100%; display: block; }
+.dh svg.annot .mk { fill: none; stroke: var(--dh-accent); stroke-width: 3; }
+.dh svg.annot .band { fill: var(--dh-accent); fill-opacity: .1; stroke: none; }
+.dh svg.annot .note { fill: var(--dh-accent); font: 500 17px/1 var(--dh-sans); text-anchor: middle; }
+.dh svg.annot .mkh { fill: var(--dh-accent); stroke: none; }
+.dh svg.annot .note.big { font: 600 30px/1 var(--dh-sans); text-anchor: start; }
+
+/* Titles stay on one line (Bo, 15 Oct 2026: two-line titles take too much room and look cluttered). Write them short. */
+.dh:not(.cover) h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

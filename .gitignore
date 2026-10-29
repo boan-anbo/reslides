@@ -1,0 +1,16 @@
+.DS_Store
+.eslintcache
+.idea
+.slidev
+.vite-inspect
+*-export
+*.local
+*.pdf
+*.tgz
+.env
+components.d.ts
+dist
+dist-ssr
+node_modules
+slides-export.md
+*slides-export.pptx
