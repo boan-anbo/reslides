@@ -151,7 +151,7 @@ kicker: 2 · Method & Primary Evidence
 
 ### 4. Embedding Your Project Webpage (`<iframe>`)
 
-For a project presentation where you want to showcase a live webpage, interactive map, or chart alongside your slides, either place your static files in `public/` or embed any URL via `<iframe>`:
+For a project presentation where you want to showcase a live webpage, interactive map, or chart alongside your slides, place your static files in a `public/` folder next to your `slides.md` file (for example, `examples/starter/public/my-project/index.html`) or embed any URL via `<iframe>`:
 
 ```markdown
 ---

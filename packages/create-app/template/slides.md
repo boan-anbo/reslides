@@ -116,7 +116,7 @@ kicker: 4 · Live Project Webpage / Interactive Demo
 
 ::foot::
 
-Tip: You can embed any local dev server (`http://localhost:...`), GitHub Pages site, or interactive HTML file in `public/`.
+Tip: Place local HTML/assets in a `public/` folder next to your `slides.md` (e.g. `public/demo/index.html` → `src="/demo/index.html"`), or embed any `http://localhost:...` / published URL.
 
 <!--
 012–015 min · 3 minutes

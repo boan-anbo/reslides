@@ -246,6 +246,11 @@ export function createSlidesLoaderReact(
 
       for (const idx of hmrSlidesIndexes) {
         moduleIds.add(sourceIds.frontmatter[idx])
+        moduleIds.add(`${VIRTUAL_SLIDE_PREFIX_REACT}${idx + 1}/md`)
+        moduleIds.add(`${VIRTUAL_SLIDE_PREFIX_REACT}${idx + 1}/frontmatter`)
+      }
+      if (hmrSlidesIndexes.size > 0) {
+        moduleIds.add(templateSlidesReact.id)
       }
 
       // React doesn't need style module reloading like Vue

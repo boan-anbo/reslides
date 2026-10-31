@@ -33,6 +33,10 @@ export function transformPublicAssetUrls(code: string, id: string, publicDir: st
           catch {
             return
           }
+          // Do not rewrite .html/.htm documents (e.g. <iframe src="/demo/index.html">)
+          // into JS ES module imports, because Vite rejects importing HTML files from public/.
+          if (/\.html?$/i.test(pathname))
+            return
           const file = resolve(root, `.${pathname}`)
           if (file.startsWith(root + sep) && statSync(file, { throwIfNoEntry: false })?.isFile()) {
             let name = imports.get(url)

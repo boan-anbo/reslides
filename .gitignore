@@ -9,7 +9,8 @@
 *.tgz
 .env
 components.d.ts
-dist
+/dist
+examples/*/dist
 dist-ssr
 node_modules
 slides-export.md

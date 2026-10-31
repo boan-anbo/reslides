@@ -15,7 +15,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "setup": "npx --yes pnpm@10.27.0 install && npx --yes pnpm@10.27.0 run build",
+    "setup": "npx --yes pnpm@10.27.0 install --ignore-scripts && npx --yes pnpm@10.27.0 run build",
     "build": "pnpm --filter @slidev/types build && pnpm --filter @slidev/parser build && pnpm --filter @slidev/cli build",
     "dev": "node packages/slidev/bin/reslides.mjs examples/starter/slides.md --open",
     "dev:exhibit": "node packages/slidev/bin/reslides.mjs examples/exhibit/slides.md --open",
